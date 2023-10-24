@@ -1,8 +1,8 @@
-name: Create and publish a API Documentation Docker image
+name: Create and publish a API Documentation to Cloud Run
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
 
 env:
   REGISTRY: ghcr.io
@@ -35,4 +35,20 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
+      - name: Google Auth
+        id: auth
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
+          token_format: "access_token"
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v0
+        with:
+          service: ${{ secrets.SERVICE_NAME }}
+          region: ${{ secrets.REGION }}
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+          env_vars: |
+            SERVICE_PORT=${{ secrets.SERVICE_PORT}}
+      - name: Show Output
+        run: echo ${{ steps.deploy.outputs.url }}

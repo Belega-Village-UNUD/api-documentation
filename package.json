@@ -1,0 +1,32 @@
+{
+  "name": "api-documentation",
+  "version": "1.0.0",
+  "description": "This is the API Documentation for the Belega Backend System",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belega-Village-UNUD/api-documentation.git"
+  },
+  "keywords": [
+    "documentation"
+  ],
+  "author": "gricowijaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Belega-Village-UNUD/api-documentation/issues"
+  },
+  "homepage": "https://github.com/Belega-Village-UNUD/api-documentation#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "swagger-ui-express": "^5.0.0",
+    "yaml": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

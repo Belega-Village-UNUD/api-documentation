@@ -7,6 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  ORG: ${{ github.repository_owner }}
 
 jobs:
   ci-cd-api-docs:
@@ -48,7 +49,7 @@ jobs:
         with:
           service: ${{ secrets.SERVICE_NAME }}
           region: ${{ secrets.REGION }}
-          image: ${{ env.REGISTRY }}/${{ secrets.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+          image: ${{ env.REGISTRY }}/${{ env.ORG }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
           env_vars: |
             SERVICE_PORT=${{ secrets.SERVICE_PORT}}
       - name: Show Output

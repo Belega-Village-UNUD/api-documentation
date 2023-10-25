@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghr.io
   IMAGE_NAME: ${{ github.repository }}
-  ORG: ${{ github.repository_owner }}
+  ORG: Belega-Village-UNUD
 
 jobs:
   ci-cd-api-docs:

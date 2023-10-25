@@ -49,7 +49,7 @@ jobs:
         with:
           service: ${{ secrets.SERVICE_NAME }}
           region: ${{ secrets.REGION }}
-          image: ${{ secrets.CONTAINER_IMAGE }}
+          image: ghcr.io/belega-village-unud/api-documentation:main
           env_vars: |
             SERVICE_PORT=${{ secrets.SERVICE_PORT}}
       - name: Show Output

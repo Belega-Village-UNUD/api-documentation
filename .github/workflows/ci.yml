@@ -49,8 +49,10 @@ jobs:
         with:
           service: ${{ secrets.SERVICE_NAME }}
           region: ${{ secrets.REGION }}
-          image: ${{ env.REGISTRY }}/${{ env.ORG }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+          image: ${{ secrets.CONTAINER_IMAGE }}
           env_vars: |
             SERVICE_PORT=${{ secrets.SERVICE_PORT}}
       - name: Show Output
-        run: echo ${{ steps.deploy.outputs.url }}
+        run: |
+          echo ${{ steps.deploy.outputs.url }}
+          echo ${{ steps.deploy.image }}

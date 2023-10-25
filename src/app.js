@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", swaggerUi.serve);
 app.get("/", swaggerUi.setup(apiDocs));
 
-app.listen(process.env.SERVICE_PORT, () => {
+app.listen(process.env.PORT, () => {
   try {
     console.log("server is running");
   } catch (err) {

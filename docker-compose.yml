@@ -8,9 +8,9 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      - SERVICE_PORT=${SERVICE_PORT}
+      - PORT=${PORT}
     ports:
-      - ${SERVICE_PORT}:${SERVICE_PORT}
+      - ${PORT}:${PORT}
     networks:
       - ecommerce-desa-belega
 
